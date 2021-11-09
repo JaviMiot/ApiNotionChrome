@@ -12,6 +12,7 @@
   "author": "Javier Manobanda <dev.javimanobanda.online> (http://javimanobanda.com/)",
   "license": "MIT",
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "@notionhq/client": "^0.4.6",
     "cors": "^2.8.5",
     "express": "^4.17.1"
