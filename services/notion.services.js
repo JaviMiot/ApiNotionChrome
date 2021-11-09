@@ -1,4 +1,4 @@
-const { Client, ClientOptions } = require('@notionhq/client');
+const { Client } = require('@notionhq/client');
 
 class NotionServer {
   constructor(notionKey, databaseId) {
@@ -7,14 +7,13 @@ class NotionServer {
   }
 
   async addPageInDatabase(dataOfPage) {
-    console.log(dataOfPage);
     try {
       const response = await this.notion.pages.create({
         ...dataOfPage,
       });
       return response;
     } catch (error) {
-      return error.message;
+      return error;
     }
   }
 }
