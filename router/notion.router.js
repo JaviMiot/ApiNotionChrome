@@ -16,7 +16,6 @@ router.post('/database/:databaseId/createpage/', async (req, res, next) => {
   const notionResponse = await notionService.addPageInDatabase(dataOfPage);
 
   if (notionResponse.name === 'APIResponseError') {
-    console.log('entra');
     next(notionResponse);
   } else {
     res.json(notionResponse);
