@@ -1,84 +1,99 @@
 
 <div  align="center">
-	<h1  style="text-align: center">Project Name</h1>
+	<h1  style="text-align: center">Api Notion Chrome</h1>
 </div>
 
-<div align="center" >
-	<img width="500" src=""/>
-</div>
-
-_About Project_
-
-## Installation🚀
-
-_How copy the project._
+_Acerca del Proyecto_
+Es una api que permite crear una página dentro de una base de datos de Notion.
 
 
-### Pre-requisites 📋
+## Instalación🚀
 
-_What I need installs?_
-
-```shell
-pip install 
+Clonar el repositorio
+```
+git clone https://github.com/JaviMiot/ApiNotionChrome.git
 ```
 
-### Usage 🔧
+### Pre-requisitos 📋
 
-_How use?_
+Para el uso de API  necesitas tener el Token de la Integración de Notion y el Id de la base de datos donde se crearán las páginas.
 
-_First step_
+Estos pasos los puedes seguir en la página oficial de [Notion](https://developers.notion.com/docs/getting-started), Tambien puedes ver como funciona con la extensión de Chrome [Aquí](https://github.com/JaviMiot/ChromeExtensionPlatziCourse)
+
+### Forma de uso 🔧
+La url de Api para crear una página es:
+```
+api/v1/notion/database/{databaseId}/createpage/
+Donde:
+databaseId : Es id de la base de datos donde almacenaremos nuestra página de Notion
 
 ```
-Da un ejemplo
+Y esta disponible en Heroku: https://apinotion.herokuapp.com/api/v1/notion/database/{databaseId}/createpage/
+Para probarla solo deberias cambiar **databaseId** por el Id de tu base de datos de Notion.
+
+Para enviar los datos de nuestra página sigue la siguiente estructura, donde se enviará el token de Notion en el parámetro **notionkey**, en **data** se enviará los parámetros de la pagina de Notion.
+
+```js
+{
+    "notionkey": "{token de Notion}",
+    "data": {
+        "parent": {
+            "database_id": "8288fe2ca51449ffb7c2d2b7a156e78c"
+        },
+        "icon": {
+            "type": "external",
+            "external": {
+                "url": "https://static.platzi.com/media/avatars/Platzi-f730e65b-e92b-44d3-81c0-5c59c4dc4658.png"
+            }
+        },
+        "properties": {
+            "Status": {
+                "select": {
+                    "name": "En Proceso"
+                }
+            },
+            "Profesor": {
+                "multi_select": [
+                    {
+                        "name": "Santiago Camargo nuevo"
+                    }
+                ]
+            },
+            "link": {
+                "url": "https://ejemplo/"
+            },
+            "Nombre del curso": {
+                "title": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "content": "titulo ejemplo desde api heroku"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+
 ```
+## Contruido con 🛠️
 
-_Y repite_
 
-```
-hasta finalizar
-```
 
-_Some example about the solution in the project_
+* [Express.js](https://expressjs.com/es/) - El framework web usado
+* [Notion Developer](https://developers.notion.com/docs/getting-started) - Api de Notion
+* [JavaScrip](https://developer.mozilla.org/es/docs/Web/JavaScript) - Lenguaje de programación
+* [Chrome Developer Plugin](https://developer.chrome.com/docs/extensions/mv3/getstarted/) - Creación de extensiones
 
-## Execute test ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Test end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Deploy 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Build with 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
 
 ## Contribution 🖇️
 
 Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
 
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versions 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autors ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Javier Manobanda** - *Trabajo Inicial* - [Github](https://github.com/JaviMiot)
 
